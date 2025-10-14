@@ -1,26 +1,15 @@
 #!/bin/bash
 
-- name: vars preference
-  hosts: local
-  connection: local
-  # vars:
-  #   NAME: from play level
-  # vars_files:
-  # - course.yaml
-  # vars_prompt:
-  # - name: NAME
-  #   prompt: What is your NAME?
-  #   private: false  
-  tasks:
-  - name: testing variables preference
-    # vars:
-    #   NAME: from task level
-    ansible.builtin.debug:
-      msg: "Name: {{ NAME }}"
+NUMBER=$1
 
-# 1. args or command line
-# 2. from task
-# 3. files
-# 4. prompt
-# 5. play level
-# 6. inventory
+if [ $NUMBER -lt 10 ]; then
+    echo "Given number $NUMBER is less than 10"
+elif [ $NUMBER -eq 10 ]; then
+    echo "Given number $NUMBER is equal to 10"
+else
+    echo "Given number $NUMBER is greater than to 10"
+fi
+
+# -gt
+# -eq
+# -ne
