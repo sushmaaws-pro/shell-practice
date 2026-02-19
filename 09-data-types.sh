@@ -4,6 +4,15 @@
 NUMBER1=100
 NUMBER2=200
 
-SUM=$(($NUMBER1+$NUMBER2))
+NAME=Devops
+
+SUM=$(($NUMBER1+$NUMBER2+$NAME))
 
 echo "SUM is : ${SUM}"
+
+# size = 4, max index=3
+LEADERS=("Modi" "Putin" "Trump")
+
+echo "All leaders: ${LEADERS[@]}"
+echo "First Leader: $(LEADER[0])"
+echo "First Leader: $(LEADER[10])"
