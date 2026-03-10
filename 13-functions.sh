@@ -20,8 +20,8 @@ VALIDATE(){ #functions receive inputs through args just like shell script args
 dnf install mysql -y
 VALIDATE $? "MySQL"
 
-dnf install Nginx -y
+dnf install nginx -y
 VALIDATE $? "Ngins"
 
-dnf install Python3 -y
+dnf install python3 -y
 VALIDATE $? "Python3"
