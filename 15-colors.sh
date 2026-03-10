@@ -38,7 +38,7 @@ else
 fi
 
 dnf list installed Python3 -y
-if[ $? -ne 0 ]; then
+if [ $? -ne 0 ]; then
     dnf install Python3 -y
     VALIDATE $?  "Python3"
 else
