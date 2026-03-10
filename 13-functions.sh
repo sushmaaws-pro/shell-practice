@@ -12,7 +12,8 @@ VALIDATE(){ #functions receive inputs through args just like shell script args
         echo "ERROR:: Installing $2 is failure"
         exit 1
     else
-        echo "Installing $2 is SUCCESS"   
+        echo "Installing $2 is SUCCESS"
+    fi       
 }
 
 
