@@ -29,17 +29,17 @@ else
     echo -e "MySql already exit ...$Y SKIPPING $N"
 fi        
 
-dnf list installed Nginx
+dnf list installed nginx
 if [ $? -ne 0 ]; then
-    dnf install Nginx -y
+    dnf install nginx -y
     VALIDATE $? "Nginx"
 else
     echo -e "Nginx already exit ...$Y SKIPPING $N"
 fi
 
-dnf list installed Python3 -y
+dnf list installed python3 -y
 if [ $? -ne 0 ]; then
-    dnf install Python3 -y
+    dnf install python3 -y
     VALIDATE $?  "Python3"
 else
     echo -e "Python3 already exit ...$Y SKIPPING $N"
