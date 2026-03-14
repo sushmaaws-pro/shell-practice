@@ -6,12 +6,13 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_FLODER="/var/log/shell-script"
+LOGS_FOLDER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOGS_FLODER/$SCRIPTE_NAME.log"
+LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
 
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
+
 
 if [ $USERID -ne 0 ]; then
     echo "ERROR:: Please run this script with root privelege"
