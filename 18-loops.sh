@@ -1,13 +1,14 @@
-USERID=$(id -u)
+#!/bin/bash
+
+USERID=$(id -u )
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-LOGS_FOLDER="/var/log/shell-script"
+LOGS_FLODER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
-LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
-
+LOG_FILE="$LOGS_FLODER/$SCRIPTE_NAME.log"
 mkdir -p $LOGS_FOLDER
 echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 
@@ -25,18 +26,18 @@ VALIDATE(){ # functions receive inputs through args just like shell script args
     fi
 }
 
-# $@
 
+# $@
 for package in $@
-do
-    # check package is already installed or not
+do 
+    #checck package is already installed oor not 
     dnf list installed $package &>>$LOG_FILE
 
-    # if exit status is 0, already installed. -ne 0 need to install it
+    # if exit status is 0, already installed. -ne 0 need too install it
     if [ $? -ne 0 ]; then
-        dnf install $package -y &>>$LOG_FILE
+        dnf install $package -y $>>$LOG_FILE
         VALIDATE $? "$package"
     else
-        echo -e "$package already installed ... $Y SKIPPING $N"
+        echo -e "$package already installed ...$Y SKIPPING $N"
     fi
-done    
+done              
