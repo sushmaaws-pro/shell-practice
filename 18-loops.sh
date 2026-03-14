@@ -10,23 +10,23 @@ LOGS_FLODER="/var/log/shell-script"
 SCRIPT_NAME=$( echo $0 | cut -d "." -f1 )
 LOG_FILE="$LOGS_FLODER/$SCRIPTE_NAME.log"
 
-mkdir -p $LOGS_FLODER
+mkdir -p $LOGS_FOLDER
+echo "Script started executed at: $(date)" | tee -a $LOG_FILE
 
-echo "Script stared  executed at: $(date)" | tee -a $LOG_FILE
-
-if [ $USERID -ne 0 ]; then 
-    echo "ERROR:: Please run this acript with root privelege"
-    exit 1
+if [ $USERID -ne 0 ]; then
+    echo "ERROR:: Please run this script with root privelege"
+    exit 1 # failure is other than 0
 fi
 
-VALIDATE(){
+VALIDATE(){ # functions receive inputs through args just like shell script args
     if [ $1 -ne 0 ]; then
-        echo -e "Installing $2 ...$R FAILURE $N" | tee -a $LOG_FILE
+        echo -e "Installing $2 ... $R FAILURE $N" | tee -a $LOG_FILE
         exit 1
     else
-        echo -e "Installing $2 ...$G SUCCESS $N" |tee -a $LOG_FILE
-    fi         
+        echo -e "Installing $2 ... $G SUCCESS $N" | tee -a $LOG_FILE
+    fi
 }
+
 
 # $@
 for package in $@
