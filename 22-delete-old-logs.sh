@@ -12,7 +12,7 @@ LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME.log" # /var/log/shell-script/16-logs.log
 
 mkdir -p $LOGS_FOLDER
 
-echo "Scripte started execute at: ($date)" | tee -a $LOG_FILE
+echo "Scripte started execute at: $(date)" | tee -a $LOG_FILE
 
 SOURCE_DIR=/home/ec2-user/app-logs
 
